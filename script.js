@@ -5,6 +5,7 @@ let DOM = {
   timeEl: document.getElementById("time-el"),
   minutesEl: document.getElementById("minutes-el"),
   secondsEl: document.getElementById("seconds-el"),
+  titleEl: document.getElementById("title-el")
 };
 let upTimer = setInterval(countUpTimer, 1000);
 let totalSeconds = 0;
@@ -21,6 +22,17 @@ function countUpTimer() {
     if (minute < 10) minute = "0" + minute;
     if (seconds < 10) seconds = "0" + seconds;
     DOM.timeEl.innerHTML = hour + ":" + minute + ":" + seconds;
+    DOM.titleEl.innerHTML = hour + ":" + minute + ":" + seconds;
+  }
+}
+
+// Visual change in start button when unavailable
+function changeStyleStartBtn() {
+  if (DOM.startBtn.disabled == true) {
+    document.getElementById("start-btn").style.opacity = "50%"
+  }
+  else {
+    document.getElementById("start-btn").style.opacity = "100%"
   }
 }
 
@@ -29,6 +41,7 @@ DOM.startBtn.addEventListener("click", function () {
   if (isRunning != true) {
     DOM.startBtn.disabled = true;
     isRunning = true;
+    changeStyleStartBtn();
   }
 });
 
@@ -36,6 +49,7 @@ DOM.startBtn.addEventListener("click", function () {
 DOM.stopBtn.addEventListener("click", function () {
   DOM.startBtn.disabled = false;
   isRunning = false;
+  changeStyleStartBtn();
 });
 
 //RESET TIMER
@@ -44,4 +58,5 @@ DOM.resetBtn.addEventListener("click", function () {
   isRunning = false;
   DOM.timeEl.innerHTML = "00:00:00";
   DOM.startBtn.disabled = false;
+  changeStyleStartBtn();
 });
