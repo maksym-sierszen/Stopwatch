@@ -59,4 +59,5 @@ DOM.resetBtn.addEventListener("click", function () {
   DOM.timeEl.innerHTML = "00:00:00";
   DOM.startBtn.disabled = false;
   changeStyleStartBtn();
+  DOM.titleEl.innerHTML = "Stopwatch"
 });
