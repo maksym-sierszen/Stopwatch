@@ -5,11 +5,6 @@
   color: white;
 }
 
-body {
-background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-
-}
-
 #container {
   position: absolute;
   top: 45%;
@@ -17,7 +12,6 @@ background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
-  
 }
 
 h1 {
@@ -26,10 +20,8 @@ h1 {
   font-size: 6vh;
 }
 
-
 #text-container {
   margin-bottom: 100px;
-  
 }
 
 #time-el {
@@ -37,19 +29,43 @@ h1 {
   font-size: 6vh;
 }
 
-button {
+.main-btn {
   display: inline-block;
-  background: none;
   border: solid 3px white;
   padding: 10px;
-  border-radius:100px;
+  border-radius: 100px;
   padding: 20px 50px;
   cursor: pointer;
   margin: 10px;
+  background: none;
 }
-
 #start-btn {
   color: white;
   border: solid 3px white;
   opacity: 100%;
 }
+
+#backgroundChange-btn {
+  border: none;
+  padding: 3vh;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 15px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+.dark-theme {
+  background: #4b79a1 linear-gradient(to right, #283e51, #4b79a1); 
+}
+
+.light-theme {
+  background: linear-gradient(
+    to right,
+    #ff9068,
+    #fd746c
+  ); }
+
+

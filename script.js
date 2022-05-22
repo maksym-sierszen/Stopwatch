@@ -5,11 +5,13 @@ let DOM = {
   timeEl: document.getElementById("time-el"),
   minutesEl: document.getElementById("minutes-el"),
   secondsEl: document.getElementById("seconds-el"),
-  titleEl: document.getElementById("title-el")
+  titleEl: document.getElementById("title-el"),
+  backgroundChangeBtn: document.getElementById("backgroundChange-btn"),
 };
 let upTimer = setInterval(countUpTimer, 1000);
 let totalSeconds = 0;
 let isRunning = false;
+let nightMode = false;
 
 //COUNTING FUNCTION
 function countUpTimer() {
@@ -26,15 +28,32 @@ function countUpTimer() {
   }
 }
 
-// Visual change in start button when unavailable
+// VISUAL CHANGE IN START BUTTON WHEN UNAVAILABLE
 function changeStyleStartBtn() {
   if (DOM.startBtn.disabled == true) {
-    document.getElementById("start-btn").style.opacity = "50%"
-  }
-  else {
-    document.getElementById("start-btn").style.opacity = "100%"
+    document.getElementById("start-btn").style.opacity = "50%";
+  } else {
+    document.getElementById("start-btn").style.opacity = "100%";
   }
 }
+
+// CHANGE THE THEME (dark/light)
+DOM.backgroundChangeBtn.addEventListener("click", function () {
+  if(nightMode==false){
+    DOM.backgroundChangeBtn.classList.remove("dark-theme");
+    DOM.backgroundChangeBtn.classList.add("light-theme");
+    document.body.classList.remove("light-theme");
+    document.body.classList.add("dark-theme");
+    nightMode = true
+  } else {
+    DOM.backgroundChangeBtn.classList.remove("light-theme");
+    DOM.backgroundChangeBtn.classList.add("dark-theme");
+    document.body.classList.remove("dark-theme");
+    document.body.classList.add("light-theme");
+    nightMode = false;
+  }
+  
+});
 
 //START THE COUNT
 DOM.startBtn.addEventListener("click", function () {
@@ -59,5 +78,5 @@ DOM.resetBtn.addEventListener("click", function () {
   DOM.timeEl.innerHTML = "00:00:00";
   DOM.startBtn.disabled = false;
   changeStyleStartBtn();
-  DOM.titleEl.innerHTML = "Stopwatch"
+  DOM.titleEl.innerHTML = "Stopwatch";
 });
