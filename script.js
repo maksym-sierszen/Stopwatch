@@ -6,12 +6,13 @@ let DOM = {
   minutesEl: document.getElementById("minutes-el"),
   secondsEl: document.getElementById("seconds-el"),
   titleEl: document.getElementById("title-el"),
-  backgroundChangeBtn: document.getElementById("backgroundChange-btn"),
+  themeChangeBtn: document.getElementById("themeChange-btn"),
 };
+
 let upTimer = setInterval(countUpTimer, 1000);
 let totalSeconds = 0;
 let isRunning = false;
-let nightMode = false;
+let darkMode = "disabled";
 
 //COUNTING FUNCTION
 function countUpTimer() {
@@ -37,22 +38,29 @@ function changeStyleStartBtn() {
   }
 }
 
+function enableDarkMode() {
+  DOM.themeChangeBtn.classList.remove("light-theme");
+  DOM.themeChangeBtn.classList.add("dark-theme");
+  document.body.classList.remove("dark-theme");
+  document.body.classList.add("light-theme");
+}
+
+function disableDarkMode() {
+  DOM.themeChangeBtn.classList.remove("dark-theme");
+  DOM.themeChangeBtn.classList.add("light-theme");
+  document.body.classList.remove("light-theme");
+  document.body.classList.add("dark-theme");
+}
 // CHANGE THE THEME (dark/light)
-DOM.backgroundChangeBtn.addEventListener("click", function () {
-  if(nightMode==false){
-    DOM.backgroundChangeBtn.classList.remove("dark-theme");
-    DOM.backgroundChangeBtn.classList.add("light-theme");
-    document.body.classList.remove("light-theme");
-    document.body.classList.add("dark-theme");
-    nightMode = true
+DOM.themeChangeBtn.addEventListener("click", function () {
+  darkMode = localStorage.getItem("dark-mode");
+  if (darkMode == "disabled") {
+    disableDarkMode();
+    localStorage.setItem("dark-mode", "enabled");
   } else {
-    DOM.backgroundChangeBtn.classList.remove("light-theme");
-    DOM.backgroundChangeBtn.classList.add("dark-theme");
-    document.body.classList.remove("dark-theme");
-    document.body.classList.add("light-theme");
-    nightMode = false;
+    enableDarkMode();
+    localStorage.setItem("dark-mode", "disabled");
   }
-  
 });
 
 //START THE COUNT
@@ -80,3 +88,4 @@ DOM.resetBtn.addEventListener("click", function () {
   changeStyleStartBtn();
   DOM.titleEl.innerHTML = "Stopwatch";
 });
+

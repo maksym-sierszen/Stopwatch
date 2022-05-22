@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="stopwatch.ico" />
   </head>
-  <body class="light-theme">
+  <body onload="startTheme()" class="light-theme">
     <div id="container">
       <div id="text-container">
         <h1>STOPWATCH</h1>
@@ -18,24 +18,22 @@
       <button class="main-btn" id="stop-btn">STOP</button>
       <button class="main-btn" id="reset-btn">RESET</button>
     </div>
-    <button class="dark-theme" id="backgroundChange-btn"></button>
-
+    <button class="circle dark-theme toggle" id="themeChange-btn"></button>
     <script src="script.js"></script>
   </body>
 </html>
-
 <!-- FEATURES TO IMPLEMENT
 
-  github.io ???? 
+  github.io ????
 
-  first - create new branch on git for upcoming features 
+  first - create new branch on git for upcoming features
 1. BACKGROUND OPTIONS (ROUND BUTTONS WITH PREVIEW OF GRADIENT )
   a) navbar
   b) circle buttons
   c) random gradient at the start of the page
 
 
-  first - create new branch on git for upcoming features 
+  first - create new branch on git for upcoming features
 2. TO DO LIST AT THE SIDE >>>>>> POMODORO STUDY HUB
 3. current date/time, weekday
 4. INFO ABOUT FEATURES
