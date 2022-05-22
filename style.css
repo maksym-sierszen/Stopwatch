@@ -58,14 +58,19 @@ h1 {
   cursor: pointer;
 }
 .dark-theme {
-  background: #4b79a1 linear-gradient(to right, #283e51, #4b79a1); 
+  background: #4b6cb7; /* fallback for old browsers */
+  background: linear-gradient(
+    135deg,
+    #182848 0%,
+    #4b6cb7 100%
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .light-theme {
+  background: #ec6f66; /* fallback for old browsers */
   background: linear-gradient(
     to right,
-    #ff9068,
-    #fd746c
-  ); }
-
-
+    #f3a183,
+    #ec6f66
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
